@@ -1,0 +1,307 @@
+/* Estilo general */
+body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f9f9f9;
+}
+
+
+h1 {
+    font-family: 'Roboto', sans-serif;
+    font-size: 2.2rem;
+    color: #2c3e50;
+    margin-bottom: 1rem;
+}
+
+/* Estilos para la tabla de contratos */
+
+.table-container {
+    overflow-x: auto; /* Habilitar scroll horizontal */
+    -webkit-overflow-scrolling: touch; /* Suaviza el scroll en dispositivos móviles */
+    margin: 0 auto;
+}
+
+#tabla-colorcitos th:nth-child(1),
+#tabla-colorcitos td:nth-child(1) {
+    width: 1px;   /* Mantén el tamaño pequeño */
+    padding: 0;    /* Elimina padding si es necesario */
+    text-align: center; /* Centra el contenido */
+    white-space: nowrap; /* Evita que se rompa el texto */
+}
+
+
+.tablitascroll{
+    overflow-x: auto; /* Habilita el scroll horizontal */
+    white-space: nowrap; /* Evita que las celdas se ajusten automáticamente */
+    max-width: 100%; /* Ajusta según el tamaño del contenedor */
+}
+
+.contract-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    font-size: 1rem;
+    text-align: left;
+}
+
+.contract-table th, .contract-table td {
+    padding: 1rem;
+    border-bottom: 3px solid #000000;
+}
+
+.contract-table th {
+    background-color: #fbbb9d;
+    color: rgb(0, 0, 0);
+}
+
+.contract-table td {
+    background-color: white;
+    color: #2c3e50;
+    white-space: nowrap; /* Impedir que el texto se divida en varias líneas */
+    overflow: hidden; /* Ocultar texto que exceda el tamaño de la celda */
+    text-overflow: ellipsis; /* Agregar puntos suspensivos al texto cortado */
+}
+
+/* Estilo para los enlaces del nombre del cliente */
+.contract-table a {
+    color: #3498db; /* Color azul atractivo */
+    text-decoration: none; /* Sin subrayado */
+    font-weight: bold; /* Negrita */
+    transition: color 0.3s ease; /* Transición suave al hacer hover */
+}
+
+.contract-table a:hover {
+    color: #2980b9; /* Color azul más oscuro al pasar el cursor */
+}
+
+.contract-table a:active {
+    color: #1a6e9e; /* Color más oscuro al tocar el enlace en móviles */
+}
+
+/* Resaltar fila al pasar el cursor */
+.contract-table tr:hover {
+    background-color: #f1f1f1;
+    transition: background-color 0.3s ease;
+}
+
+
+.contract-table .estado-cobro-pendiente {
+    background-color: #e00013 !important;
+    color: #721c24 !important;
+    font-weight: bold;
+}
+.contract-table .estado-cobro-disponible {
+    background-color:  #00af29 !important;
+    color: #155724 !important;
+    font-weight: bold;
+}
+
+.contract-table .estado-entrega-por-entregar {
+    background-color: #007bff; /* Azul */
+    color: white;
+    text-align: center;
+}
+
+.indicadores {
+    display: flex;
+    justify-content: start; /* Alinear al inicio */
+    gap: 10px; /* Separación entre indicadores */
+    margin-bottom: 20px; /* Espacio entre los indicadores y la tabla */
+    font-family: 'Roboto', sans-serif;
+}
+
+.indicador {
+    display: flex;
+    align-items: center; /* Centrar verticalmente los íconos y el texto */
+    gap: 8px; /* Separar el ícono del texto */
+    font-size: 1rem;
+    color: #2c3e50;
+    font-weight: bold;
+}
+
+.icono {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+}
+
+/* Colores específicos para los íconos */
+.icono.azul {
+    background-color: #3498db;
+}
+
+.icono.verde {
+    background-color: #28a745;
+}
+
+.icono.rojo {
+    background-color: #dc3545;
+}
+
+
+/*ESTILOS PARA LOS TRES PUNTITOS*/
+.options-container {
+    position: relative;
+    display: inline-block;
+}
+
+.options-btn {
+    background: none;
+    border: none;
+    font-size: 25px;
+    cursor: pointer;
+    color: #3498db;
+}
+
+/* Menú de opciones */
+.options-menu {
+    display: none;
+    position: fixed; /* Cambiar a 'fixed' para que no se limite por el contenedor */
+    top: 40%; /* Ajustar la posición respecto a la ventana */
+    right: 30%;
+    background-color: #fbbb9d;
+    border: 3px solid #000000;
+    border-radius: 4px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    min-width: 150px;
+    z-index: 9999;
+}
+
+/* Estilo de los enlaces dentro del menú */
+.options-menu a {
+    display: block;
+    padding: 12px 16px;
+    text-decoration: none;
+    color: #333;
+    font-size: 20px;
+}
+
+.options-menu a:hover {
+    background-color: #f0f0f0;
+}
+
+/* Mostrar el menú cuando el contenedor tenga la clase 'show-menu' */
+.options-container.show-menu .options-menu {
+    display: block;
+}
+
+.options-btn:hover {
+    color: #2980b9;
+}
+
+
+/* ESTILOS PARA DESCARGAR CONTRATOS*/
+.indicadoresAdmin {
+    display: flex;
+    flex-direction: column; /* Disposición vertical */
+    gap: 15px; /* Separación entre los elementos */
+    margin-bottom: 20px; /* Espacio entre los indicadores y la tabla */
+    font-family: 'Roboto', sans-serif;
+    align-items: flex-start; /* Alineación al inicio */
+}
+
+#download-type {
+    width: 200px; /* Tamaño ajustado del combobox */
+    padding: 8px; /* Espacio interno para que no se vea muy apretado */
+    font-size: 16px; /* Ajuste del tamaño de la fuente */
+    border-radius: 5px; /* Bordes redondeados */
+    border: 1px solid #ccc; /* Borde gris */
+    box-sizing: border-box; /* Asegura que el padding no cambie el tamaño total */
+}
+
+#generate-excel {
+    width: 150px; /* Tamaño ajustado del botón */
+    padding: 8px 12px; /* Espacio interno */
+    font-size: 15px; /* Ajuste del tamaño de la fuente */
+    border-radius: 5px; /* Bordes redondeados */
+    border: 1px solid #ccc; /* Borde gris */
+    background-color: #4CAF50; /* Color de fondo verde */
+    color: white; /* Color del texto */
+    cursor: pointer; /* Cambia el cursor cuando se pasa por encima */
+    transition: background-color 0.3s ease; /* Transición suave al pasar el mouse */
+    margin-bottom: 5px;
+}
+
+#generate-excel:hover {
+    background-color: #45a049; /* Color de fondo cuando el mouse pasa por encima */
+}
+
+#manual-selection h4 {
+    font-size: 18px;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+#contracts-list {
+    display: flex;
+    flex-wrap: wrap; /* Para permitir que los elementos se ajusten */
+    gap: 10px;
+}
+
+.hidden {
+    display: none; /* Ocultar por defecto */
+}
+
+/*ESTILOS CAMPO DE BUSQUEDA*/
+
+.search-container {
+    text-align: left;
+}
+
+.search-container input[type="text"] {
+    padding: 8px;
+    width: 250px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+.search-container button {
+    padding: 8px 12px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.search-container button:hover {
+    background-color: #0056b3;
+}
+
+
+
+/* Estilos específicos para dispositivos móviles */
+@media (max-width: 250px) {
+    .contract-table th, .contract-table td {
+        padding: 0.5rem; /* Reducir el padding para dispositivos móviles */
+        font-size: 0.9rem; /* Ajustar el tamaño de fuente */
+        display: block;
+        width: 100%;
+        text-align: right;
+        border-bottom: 1px solid #ddd;
+    }
+
+    .contract-table {
+        font-size: 0.9rem; /* Fuente más pequeña para pantallas pequeñas */
+        white-space: nowrap;
+    }
+
+
+    .contract-table th::before {
+        content: attr(data-label);
+        float: left;
+        font-weight: bold;
+        color: #2c3e50;
+    }
+
+    .contract-table td::before {
+        content: attr(data-label);
+        float: left;
+        font-weight: bold;
+        color: #2c3e50;
+    }
+}

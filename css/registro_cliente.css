@@ -1,0 +1,829 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f9f9f9;
+    font-size: 14px; /* Tamaño de fuente estándar */
+    color: #333; /* Color de texto por defecto */
+}
+
+.container {
+    background-color: #fff;
+    margin: 0 auto;
+    padding: 20px;
+    width: 100%;
+    max-width: 900px; /* Limita el ancho para pantallas grandes */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    box-sizing: border-box;
+}
+
+
+.field-container {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center; /* Alinea verticalmente el label y el input */
+    margin-bottom: 15px; /* Espacio entre los campos */
+    margin-right: 2.5%;
+}
+
+.field-container label {
+    flex: 1; /* Toma el espacio necesario, pero no más que el input */
+    margin-right: 10px; /* Espacio entre el label y el input */
+    font-size: 14px;
+    color: #333;
+}
+
+.field-container input,
+.field-container select {
+    flex: 2; /* Ocupa el doble del espacio que el label */
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    width: 100%; /* Ocupa todo el ancho disponible */
+}
+
+
+
+h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #00796b; /* Texto color */
+}
+
+h3 {
+    margin-top: 20px;
+    color: #00796b;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px; /* Añade espacio entre grupos */
+}
+
+.form-section {
+    margin-bottom: 20px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 10px;
+}
+
+.form-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px; /* Añade espacio entre columnas */
+
+}
+
+.checkbox-group {
+    display: flex;
+    flex-wrap: wrap; /* Permite que los elementos se ajusten a nuevas líneas si es necesario */
+    gap: 10px; /* Ajusta el espacio entre los checkboxes */
+    align-items: center; /* Alinea verticalmente todos los elementos al centro */
+}
+
+.checkbox-group div {
+    display: flex;
+    align-items: center; /* Alinea los checkboxes y los labels al centro */
+    margin-bottom: 10px;
+}
+
+.checkbox-group input[type="checkbox"] {
+    margin-right: 5px; /* Añade un pequeño espacio entre el checkbox y su label */
+    display: none;
+}
+
+.checkbox-group label {
+    background-color: #e0f2f1;
+    color: #000000;
+    padding: 10px 15px;
+    border-radius: 5px;
+    display: inline-block;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+.checkbox-group input[type="checkbox"]:checked + label {
+    background-color: #00796b;
+    color: #ffffff;
+}
+.checkbox-groupMat {
+    display: flex;
+    flex-wrap: wrap; /* Permite que los elementos se ajusten a nuevas líneas si es necesario */
+    gap: 10px; /* Ajusta el espacio entre los checkboxes */
+    align-items: center; /* Alinea verticalmente todos los elementos al centro */
+}
+
+.checkbox-groupMat div {
+    display: flex;
+    align-items: center; /* Alinea los checkboxes y los labels al centro */
+    margin-bottom: 10px;
+}
+
+.checkbox-groupMat input[type="checkbox"] {
+    margin-right: 5px; /* Añade un pequeño espacio entre el checkbox y su label */
+    display: none;
+}
+
+.checkbox-groupMat label {
+    background-color: #f2e8d9;
+    color: #000000;
+    padding: 10px 15px;
+    border-radius: 5px;
+    display: inline-block;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+.checkbox-groupMat input[type="checkbox"]:checked + label {
+    background-color: #f29b0e;
+    color: #ffffff;
+}
+.checkbox-groupBi {
+    display: flex;
+    flex-wrap: wrap; /* Permite que los elementos se ajusten a nuevas líneas si es necesario */
+    gap: 10px; /* Ajusta el espacio entre los checkboxes */
+    align-items: center; /* Alinea verticalmente todos los elementos al centro */
+}
+
+.checkbox-groupBi div {
+    display: flex;
+    align-items: center; /* Alinea los checkboxes y los labels al centro */
+    margin-bottom: 10px;
+}
+
+.checkbox-groupBi input[type="checkbox"] {
+    margin-right: 5px; /* Añade un pequeño espacio entre el checkbox y su label */
+    display: none;
+}
+
+.checkbox-groupBi label {
+    background-color: #b6cdeb;
+    color: #000000;
+    padding: 10px 15px;
+    border-radius: 5px;
+    display: inline-block;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+.checkbox-groupBi input[type="checkbox"]:checked + label {
+    background-color: #1475f4;
+    color: #ffffff;
+}
+.checkbox-groupPromo {
+    display: flex;
+    flex-wrap: wrap; /* Permite que los elementos se ajusten a nuevas líneas si es necesario */
+    gap: 10px; /* Ajusta el espacio entre los checkboxes */
+    align-items: center; /* Alinea verticalmente todos los elementos al centro */
+}
+
+.checkbox-groupPromo div {
+    display: flex;
+    align-items: center; /* Alinea los checkboxes y los labels al centro */
+    margin-bottom: 10px;
+}
+
+.checkbox-groupPromo input[type="checkbox"] {
+    margin-right: 5px; /* Añade un pequeño espacio entre el checkbox y su label */
+    display: none;
+}
+
+.checkbox-groupPromo label {
+    background-color: #e6bdf1;
+    color: #000000;
+    padding: 10px 15px;
+    border-radius: 5px;
+    display: inline-block;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+.checkbox-groupPromo input[type="checkbox"]:checked + label {
+    background-color: #c714f4;
+    color: #ffffff;
+}
+
+
+
+
+#matOtroTexto, #matPrecio, #tratOtroTexto, #tratPrecio {
+    width: auto;
+    max-width: 120px;
+    padding: 5px;
+    margin-top: 5px;
+    font-size: 13px;
+}
+
+
+/* Estilos de campo de entrada para la molestia adicional */
+#otraMolestiaTexto {
+    margin-top: 8px; /* Espacio sobre el campo de texto */
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+    width: 100%; /* Ocupa el ancho completo */
+}
+
+.form-row .form-group {
+    flex: 1;
+    min-width: 45%; /* Ancho mínimo para columnas */
+}
+
+input[type="text"],
+input[type="tel"],
+input[type="date"],
+input[type="password"],
+input[type="number"],
+select {
+    background-color: #ffffe2;
+    padding: 10px;
+    border: 1px ridge #ddd;
+    border-radius: 4px;
+    font-size: 13px;
+    width: 85%; /* Asegura que los campos llenen el contenedor */
+    box-sizing: border-box; /* Incluye padding y border en el ancho total */
+    font-weight: bold;
+}
+
+input[type="time"]{
+    background-color: #ffffe2;
+    padding: 10px;
+    border: 1px ridge #ddd;
+    border-radius: 4px;
+    font-size: 13px;
+    width: 50%; /* Asegura que los campos llenen el contenedor */
+    box-sizing: border-box; /* Incluye padding y border en el ancho total */
+    font-weight: bold;
+
+}
+
+input[type="file"] {
+    padding: 5px;
+    font-size: 14px;
+    width: 100%; /* Asegura ancho completo */
+}
+
+button {
+    padding: 10px;
+    background-color: #00796b;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+button:hover {
+    background-color: #004d40;
+}
+
+
+.icon-upload {
+    cursor: pointer; /* Cambia el cursor para indicar interactividad */
+    display: inline-block; /* Asegura que se comporte como un elemento en línea */
+    margin: 10px; /* Margen alrededor del ícono para espaciar */
+}
+
+.icon-upload img {
+    width: 50px; /* Ajusta el tamaño del ícono según sea necesario */
+    height: 50px; /* Ajusta el tamaño del ícono según sea necesario */
+    transition: transform 0.2s; /* Efecto visual al pasar el mouse */
+}
+
+.icon-upload img:hover {
+    transform: scale(1.1); /* Agranda un poco el ícono al pasar el mouse */
+}
+
+.icon-row {
+    display: flex; /* Activa el flexbox */
+    justify-content: space-around; /* Espacia los íconos uniformemente */
+    margin-bottom: 20px; /* Espacio inferior entre las filas */
+}
+
+.icon-upload {
+    flex: 1; /* Permite que los íconos ocupen el mismo espacio */
+    text-align: center; /* Centra el ícono dentro del contenedor */
+}
+
+.icon-upload img {
+    width: 50px; /* Tamaño del ícono */
+    height: 50px; /* Tamaño del ícono */
+    cursor: pointer; /* Cambia el cursor al pasar sobre el ícono */
+    transition: transform 0.3s ease; /* Añade un pequeño efecto al pasar el mouse */
+}
+
+.icon-upload img:hover {
+    transform: scale(1.1); /* Escala el ícono al pasar el mouse */
+}
+
+.img-preview {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 120px; /* Ancho del contenedor */
+    height: 120px; /* Alto del contenedor */
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    margin-top: 10px;
+    overflow: hidden;
+    background-color: #f9f9f9;
+}
+
+/* Imagen dentro del contenedor de vista previa */
+.img-preview img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+}
+
+
+.modal {
+    display: flex;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.8);
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    max-width: 80%;
+    max-height: 80%;
+}
+
+.close {
+    position: absolute;
+    top: 15px;
+    right: 35px;
+    color: white;
+    font-size: 40px;
+    font-weight: bold;
+    cursor: pointer;
+}
+.closes{
+    position: absolute;
+    top: 30px;
+    right: 50px;
+    color: rgb(255, 0, 0);
+    font-size: 40px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+
+.btn {
+    display: inline-block; /* Permite añadir padding */
+    padding: 10px 20px; /* Espaciado interno */
+    font-size: 16px; /* Tamaño de la fuente */
+    color: white; /* Color del texto */
+    background-color: #007bff; /* Color de fondo del botón */
+    border: none; /* Sin borde */
+    border-radius: 5px; /* Bordes redondeados */
+    text-decoration: none; /* Sin subrayado */
+    transition: background-color 0.3s ease; /* Transición suave para el hover */
+}
+
+.btn:hover {
+    background-color: #0056b3; /* Color de fondo al pasar el mouse */
+}
+
+.btn:focus {
+    outline: none; /* Sin contorno */
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5); /* Sombra al hacer clic */
+}
+
+
+@media (max-width: 300px) {
+    .form-row {
+        flex-direction: column; /* Alinea columnas en una sola para móvil */
+    }
+
+    .form-group {
+        min-width: 100%;
+    }
+}
+
+/*ESTILOS PARA LOS CHECKBOXS QUE ESTÁN DESHABILITADOS*/
+input[type="checkbox"]:disabled {
+    background-color: #690606; /* Cambia el color de fondo */
+    border-color: #00796b; /* Cambia el color del borde */
+    color: #00796b; /* Cambia el color del texto */
+    opacity: 1; /* Asegúrate de que no esté opaco */
+}
+ 
+/* Cambia el color del label de los checkboxes deshabilitados */
+input[type="checkbox"]:disabled + label {
+    color: #00796b; /* Color del texto del label */
+}
+
+
+
+/*ESTILOS PARA EL MODAL DE OPCIONES DE CONTRATO*/
+.modal-opciones-contrato {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7); /* Fondo oscuro semitransparente */
+    justify-content: center;
+    align-items: center;
+    animation: fadeIn 0.3s ease-in-out; /* Animación de desvanecimiento */
+}
+
+/* Contenido exclusivo para el modal de opciones de contrato */
+.modal-opciones-contrato-content {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 90%;
+    max-width: 400px;
+    animation: scaleUp 0.3s ease-in-out; /* Animación al abrir */
+}
+
+/* Botón de cerrar exclusivo del modal */
+.close-opciones-contrato {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 24px;
+    cursor: pointer;
+    color: #888;
+}
+
+/* Cambiar color del botón de cerrar al pasar el mouse */
+.close-opciones-contrato:hover {
+    color: #ff5252;
+}
+
+/* Título exclusivo del modal */
+h2 {
+    font-family: 'Arial', sans-serif;
+    font-size: 22px;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+/* Estilos para los botones dentro del modal */
+.modal-opciones-contrato-button {
+    background-color: #00796b;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    margin: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    font-size: 16px;
+    width: 40%;
+}
+
+/* Cambiar el color al hacer hover en los botones */
+.modal-opciones-contrato-button:hover {
+    background-color: #004d40;
+}
+
+/* Animación de desvanecimiento */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* Animación de escalado */
+@keyframes scaleUp {
+    from { transform: scale(0.7); }
+    to { transform: scale(1); }
+}
+
+
+/*ESTILOS PARA MODAL DE ABONOS*/
+
+
+.modal-abono {
+    display: none;
+    position: fixed;
+    z-index: 9999;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-abono {
+    display: none;
+    position: fixed;
+    z-index: 9999;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    justify-content: center;
+    align-items: center;
+}
+
+/* Estilo del contenido del modal */
+.modal-content-abono {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    width: 400px; /* Puedes ajustar esto */
+    max-width: 90%;
+    max-height: 80%; /* Altura máxima del modal */
+    overflow-y: auto; /* Permitir desplazamiento vertical */
+    text-align: center;
+}
+
+/* Estilo de la "X" de cerrar */
+.modal-content-abono .close {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+/* Estilo de los campos de texto e input */
+.modal-label-abono {
+    display: block;
+    margin-top: 15px;
+    font-weight: bold;
+    text-align: left;
+}
+
+.modal-input-abono {
+    width: 95%;
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #4f4f4f;
+    border-radius: 4px;
+    font-size: 15px;
+}
+
+/* Estilo del botón de aceptar */
+.modal-btn-abono {
+    background-color: #00796b;
+    color: white;
+    padding: 10px 20px;
+    margin-top: 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.modal-btn-abono:hover {
+    background-color: #004d40;
+}
+
+/* Estilo para el body cuando el modal está abierto */
+body.modal-open {
+    overflow: hidden; /* Deshabilita el desplazamiento */
+    height: 100%; /* Asegura que el body ocupe el 100% de la altura */
+}
+body.modal-closed {
+    overflow: visible; /* Deshabilita el desplazamiento */
+    height: 100%; /* Asegura que el body ocupe el 100% de la altura */
+}
+/*------------------------------------------------------------------------------------*/
+/* Modal de eliminación */
+.modal-eliminar {
+    display: none; /* Inicialmente oculto */
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    padding: 20px;
+    border-radius: 5px;
+    width: 300px;
+    z-index: 1050; /* Asegúrate de que el modal esté en frente */
+}
+
+/* Contenido del modal */
+.modal-content-eliminar {
+    position: relative;
+}
+
+/* Estilo para el botón de cierre (X) */
+.close-modal-eliminar {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 30px;
+    color: #333;
+    cursor: pointer;
+}
+
+/* Fondo del modal oscuro */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 1040; /* Asegurarse de que esté detrás del contenido */
+}
+
+/* Estilo para el botón de eliminar */
+.modal-btn-eliminar {
+    background-color: red;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 35%;
+    margin-bottom: 10px;
+}
+
+.modal-btn-eliminar:hover {
+    background-color: darkred;
+}
+
+
+
+@media (max-width: 600px) {
+/* ESTILOS PARA EL MODAL DE OPCIONES DE CONTRATO */
+.modal-opciones-contrato {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7); /* Fondo oscuro semitransparente */
+    justify-content: center;
+    align-items: center;
+    animation: fadeIn 0.3s ease-in-out; /* Animación de desvanecimiento */
+}
+
+/* Contenido exclusivo para el modal de opciones de contrato */
+.modal-opciones-contrato-content {
+    background-color: #fff;
+    padding: 15px; /* Reducido para un mejor ajuste en móvil */
+    border-radius: 8px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 90%;
+    max-width: 400px;
+    max-height: 80%; /* Altura máxima del modal */
+    overflow-y: auto; /* Permitir desplazamiento vertical */
+    animation: scaleUp 0.3s ease-in-out; /* Animación al abrir */
+}
+
+/* Estilo del encabezado */
+.modal-opciones-contrato-content h2 {
+    font-size: 18px; /* Ajustar el tamaño de la fuente para móviles */
+}
+
+/* Estilos para los campos de texto e input */
+.form-section {
+    margin-top: 10px; /* Espaciado entre secciones */
+}
+
+.form-row label {
+    display: block;
+    margin-bottom: 5px; /* Espaciado debajo del label */
+}
+
+.form-row input {
+    width: 100%; /* Ancho completo para el input */
+    padding: 10px;
+    border: 1px solid #4f4f4f;
+    border-radius: 4px;
+}
+
+/* Botón del modal */
+.modal-opciones-contrato-button {
+    margin-top: 10px; /* Espaciado para botones */
+    padding: 10px 15px;
+    background-color: #00796b;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px; /* Tamaño de fuente más pequeño */
+}
+
+.modal-opciones-contrato-button:hover {
+    background-color: #004d40; /* Color de fondo al pasar el mouse */
+}
+
+.ticketWSP{
+    margin-top: 10px; /* Espaciado para botones */
+    padding: 10px 15px;
+    background-color: #1024ff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px; /* Tamaño de fuente más pequeño */
+}
+
+.ticketWSP:hover {
+    background-color: #0030cf; /* Color de fondo al pasar el mouse */
+}
+
+
+
+/*ESTILOS PARA EL MODAL DE ENTREGAR TICKET WSP*/
+/* Fondo del modal */
+.modal-wsp {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.5);
+    justify-content: center;
+    align-items: center;
+  }
+  
+  /* Contenedor del contenido del modal */
+  .modal-wsp-content {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    width: 80%;
+    max-width: 500px;
+    position: relative;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+  
+  /* Botón de cierre */
+  .close-wsp {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    color: #aaa;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+  }
+  
+  .close-wsp:hover {
+    color: black;
+  }
+  
+  /* Lista de abonos */
+  #listaAbonosWSP {
+    list-style-type: none;
+    padding: 0;
+    margin: 20px 0 0 0;
+    max-height: 300px; /* Limitar la altura de la lista */
+    overflow-y: auto; /* Habilitar scroll solo en la lista */
+  }
+  
+  #listaAbonosWSP li {
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    background-color: #fffed4;
+  }
+  
+  #listaAbonosWSP li:hover {
+    background-color: #f0f0f0;
+  }
+  
+/* ESTILOS PARA EL TELEFONO */
+
+#telefono {
+    display: inline-block;
+    padding: 8px;
+    border: 1px solid #000000;
+    border-radius: 4px;
+    background-color: #ffffe2;
+    color: #333;
+    text-decoration: none;
+    font-weight: bold;
+}
+#telefono:hover {
+    background-color: #e9e9e9;
+}
+
+}
