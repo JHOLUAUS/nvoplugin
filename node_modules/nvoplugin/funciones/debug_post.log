@@ -1,0 +1,9 @@
+2024-12-13 19:30:08 - Datos recibidos: Array
+(
+    [id_folio] => 21
+    [cantidad_abonoP] => 100
+    [metodo_pagoP] => Efectivo
+    [producto] => Spray
+    [id_cobrador] => 4
+)
+

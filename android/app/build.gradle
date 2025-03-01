@@ -5,8 +5,8 @@ android {
     compileSdk rootProject.ext.compileSdkVersion
     defaultConfig {
         applicationId "com.nuevavistaoptica.app"
-        minSdkVersion rootProject.ext.minSdkVersion
-        targetSdkVersion rootProject.ext.targetSdkVersion
+        minSdkVersion 23  // o 31 si se requiere compatibilidad con Android 12
+        targetSdkVersion 33  // Usa 31 si es necesario para compatibilidad con Bluetooth
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
@@ -16,10 +16,23 @@ android {
             ignoreAssetsPattern '!.svn:!.git:!.ds_store:!*.scc:.*:!CVS:!thumbs.db:!picasa.ini:!*~'
         }
     }
+
+    signingConfigs {
+    release {
+        storeFile file("C:/xampp/htdocs/android/app/nvokey.jks") // Ruta de tu archivo keystore
+        storePassword "180898jholaus" // Contraseña de tu keystore
+        keyAlias "nvokey" // Alias de tu clave
+        keyPassword "180898jholaus" // Contraseña de la clave
+        }
+    }
+
+
     buildTypes {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.release // Indica que esta configuración usa la firma
+
         }
     }
 }

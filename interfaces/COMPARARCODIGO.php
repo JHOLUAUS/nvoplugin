@@ -714,3 +714,52 @@ function sendToPrinter(pdfUrl) {
 </script>
 
 
+//ACA ESTÁ INFORMACION_dE_CONTRATO, LA FUNCION PARA MOVIL:
+
+// 📱 En Móvil: Obtener URL del ticket y abrir/compartir
+                                //const nvoBluetoothPrinter = new BluetoothPrinter();
+                                let urlParams = new URLSearchParams({
+                                    idGlobalCliente: idGlobalCliente,
+                                    folio_encode: folioEncode,
+                                    nombre_cliente: nombreCliente,
+                                    cantidad_abono: cantidadAbono,
+                                    metodo_pago: metodoPago,
+                                    nuevo_saldo: nuevoSaldo,
+                                    aboprodfolio: aboprodfolio,
+                                    nombre_cobrador: nombreCobrador,
+                                    saldo_anterior: saldoAnterior
+                                });
+
+                                fetch(urlGenerarTicket + '?' + urlParams.toString())
+                                    .then(response => response.json()) // Convertir la respuesta en JSON
+                                    .then(data => {
+                                        if (data.fileUrl) {
+                                            let base64Image = data.fileUrl; // La imagen en Base64 ya está en el JSON
+                                            console.log("Imagen en Base64 recibida");
+
+                                            // Llamar a tu plugin para imprimir la imagen en la impresora Bluetooth
+                                            BluetoothPrinter.printImage({ base64Image })
+                                                .then(() => {
+                                                    console.log("Impresión exitosa");
+                                                    alert("Ticket impreso exitosamente.");
+                                                })
+                                                .catch((error) => {
+                                                    console.error("Error al imprimir:", error);
+                                                    alert("No se pudo imprimir el ticket.");
+                                                });
+
+                                        } else {
+                                            alert("No se pudo generar el ticket.");
+                                        }
+                                    })
+                                    .catch(error => {
+                                        console.error("Error en fetch:", error);
+                                        alert("No se pudo generar el ticket. Inténtalo nuevamente.");
+                                    });
+                            }
+                        } else if (response.status === "error") {
+                            alert(response.message);
+                        }
+                    } else {
+                        alert("Ocurrió un error al registrar el abono. Inténtalo más tarde.");
+                    }//Esta ultima llave está justo antes de habilitar los botones nuevamente

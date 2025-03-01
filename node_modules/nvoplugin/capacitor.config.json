@@ -1,0 +1,9 @@
+{
+  "appId": "com.nuevavistaoptica.app",
+  "appName": "Nueva Vista Optica",
+  "webDir": "www",
+  "server": {
+    "url": "http://192.168.1.32",
+    "cleartext": true
+  }
+}

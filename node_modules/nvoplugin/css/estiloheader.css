@@ -1,0 +1,28 @@
+/* Estilo para el contenedor del encabezado */
+.header-container {
+    background-color: #40E0D0; /* Azul turquesa */
+    box-shadow: 1px 2px 5px rgba(0, 0, 0, 0.1);
+    margin: 20px auto;
+    padding: 10px;
+    max-width: auto; /* Ajusta el ancho máximo según sea necesario */
+}
+
+/* Estilo para el contenido del encabezado */
+.header-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+/* Estilo para el logo en el encabezado */
+.header-logo {
+    width: 100px; /* Ajusta el tamaño del logo según sea necesario */
+    border-radius: 7%;
+}
+
+/* Estilo para el texto del encabezado */
+.header-content span {
+    font-size: 18px;
+    color: #333;
+    font-weight: bold;
+}

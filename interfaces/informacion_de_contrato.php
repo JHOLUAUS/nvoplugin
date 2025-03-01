@@ -121,6 +121,8 @@ $stmt->close();
     <!-- Leaflet Routing Machine JavaScript -->
     <script src="https://unpkg.com/leaflet-routing-machine/dist/leaflet-routing-machine.js"></script>
     <script type="text/javascript" src="https://printjs-4de6.kxcdn.com/print.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+
 
 
 
@@ -855,15 +857,25 @@ $stmt->close();
 
 
 <script type="module">
-
 //import { Share } from '@capacitor/share';
 document.addEventListener("DOMContentLoaded", function() {
     // MODAL DE ABONO----------------------------------------------------------
+
+const BluetoothPrinter = Capacitor.Plugins.nvoplugin.BluetoothPrinter;
+
+console.log("BluetoothPrinter:", BluetoothPrinter);
+if (!BluetoothPrinter) {
+        console.error("El plugin BluetoothPrinter no está disponible.");
+    }
+    console.log("Capacitor:", Capacitor);
+
+
     var opcionAbono = document.getElementById('opcionAbono');
     var modalAbono = document.getElementById('modalAbono');
     var closeModalAbono = document.getElementById('closeModalAbono');
     var btnImprimirAbono = document.getElementById('btnImprimirAbono');
     var liquidarCheckbox = document.getElementById('liquidar');
+    
 
     // Mostrar el modal de Abono al hacer clic en la opción de Abono
     opcionAbono.onclick = function() {
@@ -975,47 +987,49 @@ document.addEventListener("DOMContentLoaded", function() {
                                 };
                             } else {
                                 // 📱 En Móvil: Obtener URL del ticket y abrir/compartir
+                                //const nvoBluetoothPrinter = new BluetoothPrinter();
                                 let urlParams = new URLSearchParams({
-                                    idGlobalCliente: idGlobalCliente,
-                                    folio_encode: folioEncode,
-                                    nombre_cliente: nombreCliente,
-                                    cantidad_abono: cantidadAbono,
-                                    metodo_pago: metodoPago,
-                                    nuevo_saldo: nuevoSaldo,
-                                    aboprodfolio: aboprodfolio,
-                                    nombre_cobrador: nombreCobrador,
-                                    saldo_anterior: saldoAnterior
-                                });
+                                idGlobalCliente: idGlobalCliente,
+                                folio_encode: folioEncode,
+                                nombre_cliente: nombreCliente,
+                                cantidad_abono: cantidadAbono,
+                                metodo_pago: metodoPago,
+                                nuevo_saldo: nuevoSaldo,
+                                aboprodfolio: aboprodfolio,
+                                nombre_cobrador: nombreCobrador,
+                                saldo_anterior: saldoAnterior
+                            });
 
-                                fetch(urlGenerarTicket + '?' + urlParams.toString())
-                                    .then(response => response.json()) // Convertir la respuesta en JSON
-                                    .then(data => {
-                                        if (data.fileUrl) {
-                                            let ticketUrl = data.fileUrl;
-                                            console.log("url del ticket: ",ticketUrl);
-                                    nvoBluetoothPrinter.isAvailable().then(function() {
-                                        nvoBluetoothPrinter.printBase64(ticketUrl).then(function(result) {
-                                            console.log("Impresión exitosa:", result);
-                                            alert("Ticket impreso exitosamente.");
-                                        }).catch(function(error) {
-                                            console.error("Error al imprimir:", error);
-                                            alert("No se pudo imprimir el ticket.");
+                            fetch(urlGenerarTicket + '?' + urlParams.toString())
+                                .then(response => response.text()) // Obtener el HTML del ticket
+                                .then(html => {
+                                    let ticketContainer = document.createElement("div");
+                                    ticketContainer.innerHTML = html;
+                                    document.body.appendChild(ticketContainer);
+
+                                    let ticketElement = ticketContainer.querySelector('#ticket'); // Asegurar que #ticket exista
+
+                                    if (!ticketElement) {
+                                        console.error("No se encontró el elemento #ticket en el HTML recibido.");
+                                        return;
+                                    }
+
+                                    // Esperar un pequeño tiempo antes de capturar la imagen
+                                    setTimeout(() => {
+                                        html2canvas(ticketElement).then(canvas => {
+                                            let base64Image = canvas.toDataURL("image/png");
+                                            enviarImagenBase64(base64Image);
+                                            document.body.removeChild(ticketContainer); // Limpiar el DOM después
+                                        }).catch(error => {
+                                            console.error("Error al capturar el ticket con html2canvas:", error);
                                         });
-                                    }).catch(function(error) {
-                                        alert("No se pudo conectar con la impresora Bluetooth. Asegúrate de que esté encendida y conectada.");
-                                    });
-                                    
-                                    // También abrimos el archivo si es necesario
-                                    //window.open(ticketUrl, '_blank');
-                                } else {
-                                    alert("No se pudo generar el ticket.");
-                                }
-                            })
-                                    .catch(error => {
-                                        console.error("Error en fetch:", error);
-                                        alert("No se pudo generar el ticket. Inténtalo nuevamente.");
-                                    });
-                            }
+                                    }, 500); // Esperar 500ms para que el HTML se renderice
+                                })
+                                .catch(error => {
+                                    console.error("Error al generar el ticket:", error);
+                                    alert("No se pudo generar el ticket. Inténtalo más tarde.");
+                                });
+                        }
                         } else if (response.status === "error") {
                             alert(response.message);
                         }
@@ -1032,6 +1046,15 @@ document.addEventListener("DOMContentLoaded", function() {
         xhr.send("idGlobalCliente=" + idGlobalCliente + "&aboprodfolio=" + aboprodfolio + "&cantidad_abono=" + cantidadAbono + "&metodo_pago=" + metodoPago + "&liquidar=" + liquidar + "&nuevo_saldo=" + nuevoSaldo + "&id_cobrador=" + idCobrador);
     };
 });
+
+async function enviarImagenBase64(base64Image) {
+    try {
+        await BluetoothPrinter.printImage({ base64Image });
+        console.log("Impresión exitosa");
+    } catch (error) {
+        console.error("Error al imprimir:", error);
+    }
+}
 </script>
 
 
